@@ -7,9 +7,13 @@ import com.example.hellospring.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
-public class MemberService {
+public class MemberService { //test 생성: ctrl + shift + t
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository){
+        this.memberRepository = memberRepository; //DI가 가능하게 변경
+    }
 
     //회원 가입
     public Long join(Member member){
